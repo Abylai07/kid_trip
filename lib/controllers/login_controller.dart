@@ -5,7 +5,9 @@ import 'package:kid_trip/utils/api_endpoints.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../ui/navigation/navigation.dart';
+import '../ui/parent/parent_navigation/navigation.dart';
+
+
 
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
@@ -30,7 +32,6 @@ class LoginController extends GetxController {
           var token = json['data']['Token'];
           print(token);
           final SharedPreferences prefs = await _prefs;
-
           await prefs.setString('token', token);
           emailController.clear();
           passwordController.clear();

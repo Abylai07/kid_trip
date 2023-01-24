@@ -5,7 +5,8 @@ import 'package:kid_trip/utils/api_endpoints.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../ui/navigation/navigation.dart';
+import '../ui/parent/parent_navigation/navigation.dart';
+
 
 class RegistrationController extends GetxController {
   TextEditingController nameController = TextEditingController();

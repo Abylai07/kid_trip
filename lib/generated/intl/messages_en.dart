@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("How many children?"),
         "kidTrip": MessageLookupByLibrary.simpleMessage("KidTrip"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginW": MessageLookupByLibrary.simpleMessage("Or login with:"),
         "loginWith": MessageLookupByLibrary.simpleMessage("Or login with:"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),

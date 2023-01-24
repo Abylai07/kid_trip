@@ -21,5 +21,6 @@
   "signUp" : "Sign Up",
   "password" : "Password",
   "forgotPassword" : "Forgot your password?",
-  "loginWith" : "Or login with:"
+  "loginWith" : "Or login with:",
+  "loginW" : "Or login with:"
 }

@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:kid_trip/repository/Api/repo_settings.dart';
-import 'package:kid_trip/ui/calculator_screen/calculator_screen.dart';
-import 'package:kid_trip/ui/calculator_screen/subscription_screen.dart';
-import 'package:kid_trip/ui/child_screen/child_screen.dart';
-import 'package:kid_trip/ui/home_screen/home_screen.dart';
 import 'package:kid_trip/ui/login_screen/login_screen.dart';
-import 'package:kid_trip/ui/navigation/navigation.dart';
+import 'package:kid_trip/ui/parent/calculator_screen/calculator_screen.dart';
+import 'package:kid_trip/ui/parent/calculator_screen/subscription_screen.dart';
+import 'package:kid_trip/ui/parent/child_screen/child_screen.dart';
+import 'package:kid_trip/ui/parent/home_screen/home_screen.dart';
+import 'package:kid_trip/ui/parent/settings_screen/settings_screen.dart';
 import 'package:kid_trip/ui/registration_screen/components/registration_driver.dart';
 import 'package:kid_trip/ui/registration_screen/components/registration_parents.dart';
 import 'package:kid_trip/ui/registration_screen/registration_screen.dart';
-import 'package:kid_trip/ui/settings_screen/settings_screen.dart';
 import 'package:kid_trip/ui/welcome_screen/welcome_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -45,7 +44,7 @@ class KidTrip extends StatelessWidget {
           theme: ThemeData(),
           debugShowCheckedModeBanner: false,
           routes: {
-            '/': (context) => WelcomeScreen(),
+            '/': (context) => const WelcomeScreen(),
             '/login_screen': (context) => LoginScreen(),
             '/registration_screen': (context) => RegistrationScreen(),
             '/home_screen': (context) => const HomeScreen(),
@@ -54,7 +53,6 @@ class KidTrip extends StatelessWidget {
             '/calculator_screen': (context) => const CalculatorScreen(),
             '/registration_driver': (context) => RegistrationDriver(),
             '/registration_parents': (context) => const RegistrationParents(),
-            //'/navigation': (context) => Navigation(),
             '/child_screen': (context) => ChildScreen(),
           },
           initialRoute: '/',
