@@ -31,7 +31,6 @@ class RegistrationController extends GetxController {
         final json = jsonDecode(response.body);
         if(json['code'] == 0){
           var token = json['data']['Token'];
-          print(token);
           final SharedPreferences prefs = await _prefs;
 
           await prefs.setString('token', token);
@@ -39,7 +38,7 @@ class RegistrationController extends GetxController {
           emailController.clear();
           passwordController.clear();
 
-          Get.off(Navigation());
+          Get.off(const Navigation());
         } else {
           throw jsonDecode(response.body)['message'] ?? 'Unknown Error Occurred';
         }

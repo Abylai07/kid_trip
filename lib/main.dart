@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:kid_trip/repository/Api/repo_settings.dart';
+import 'package:kid_trip/ui/driver/map_screen/map_screen.dart';
 import 'package:kid_trip/ui/login_screen/login_screen.dart';
 import 'package:kid_trip/ui/parent/calculator_screen/calculator_screen.dart';
 import 'package:kid_trip/ui/parent/calculator_screen/subscription_screen.dart';
 import 'package:kid_trip/ui/parent/child_screen/child_screen.dart';
 import 'package:kid_trip/ui/parent/home_screen/home_screen.dart';
-import 'package:kid_trip/ui/parent/settings_screen/settings_screen.dart';
+import 'package:kid_trip/ui/parent/parent_map/parent_map.dart';
 import 'package:kid_trip/ui/registration_screen/components/registration_driver.dart';
 import 'package:kid_trip/ui/registration_screen/components/registration_parents.dart';
 import 'package:kid_trip/ui/registration_screen/registration_screen.dart';
+import 'package:kid_trip/ui/splash/splash.dart';
 import 'package:kid_trip/ui/welcome_screen/welcome_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -40,31 +43,40 @@ class KidTrip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) => RepoSettings(),
-      child: GetMaterialApp(
-          theme: ThemeData(),
-          debugShowCheckedModeBanner: false,
-          routes: {
-            '/': (context) => const WelcomeScreen(),
-            '/login_screen': (context) => LoginScreen(),
-            '/registration_screen': (context) => RegistrationScreen(),
-            '/home_screen': (context) => const HomeScreen(),
-            '/subscription_screen': (context) => const SubscriptionScreen(),
-            '/settings_screen': (context) => const SettingsScreen(),
-            '/calculator_screen': (context) => const CalculatorScreen(),
-            '/registration_driver': (context) => RegistrationDriver(),
-            '/registration_parents': (context) => const RegistrationParents(),
-            '/child_screen': (context) => ChildScreen(),
-          },
-          initialRoute: '/',
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          locale: locale,
-          supportedLocales: S.delegate.supportedLocales,
-        ),
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (BuildContext context, Widget? child) {
+          return GetMaterialApp(
+            theme: ThemeData(),
+            debugShowCheckedModeBanner: false,
+            routes: {
+              '/': (context) => const CustomSplash(),
+              '/welcome_screen': (context) => const WelcomeScreen(),
+              '/login_screen': (context) => const LoginScreen(),
+              '/registration_screen': (context) => const RegistrationScreen(),
+              '/registration_driver': (context) => const RegistrationDriver(),
+              '/registration_parents': (context) => const RegistrationParents(),
+              //parent
+              '/home_screen': (context) => const HomeScreen(),
+              '/subscription_screen': (context) => const SubscriptionScreen(),
+              '/calculator_screen': (context) => const CalculatorScreen(),
+              '/child_screen': (context) => const ChildScreen(),
+              '/parent_map': (context) => const ParentMap(),
+              //driver
+              '/map_screen': (context) => const MapSample(),
+            },
+            initialRoute: '/',
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            locale: locale,
+            supportedLocales: S.delegate.supportedLocales,
+          );
+        },
+      ),
     );
   }
 }

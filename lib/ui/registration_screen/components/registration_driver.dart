@@ -11,7 +11,7 @@ import 'text_buttons_widget.dart';
 import 'submit_button.dart';
 
 class RegistrationDriver extends StatefulWidget {
-  RegistrationDriver({Key? key}) : super(key: key);
+  const RegistrationDriver({Key? key}) : super(key: key);
 
   @override
   State<RegistrationDriver> createState() => _RegistrationDriverState();

@@ -18,7 +18,7 @@ class TextButtons extends StatelessWidget {
             foregroundColor: Colors.white,
           ),
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen()));
           }, child: Text(S.of(context).signUp),
         ),
         TextButton(

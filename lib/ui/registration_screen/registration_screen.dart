@@ -6,10 +6,7 @@ import '../../generated/l10n.dart';
 
 
 class RegistrationScreen extends StatelessWidget {
-  RegistrationScreen({Key? key}) : super(key: key);
-  Color buttonColor = Colors.white12;
-
-  Color buttonTextColor = Colors.white54;
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -10,6 +10,8 @@ import 'components/login_with.dart';
 import 'components/text_buttons.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

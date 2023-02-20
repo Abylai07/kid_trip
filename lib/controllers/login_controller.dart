@@ -30,13 +30,12 @@ class LoginController extends GetxController {
         final json = jsonDecode(response.body);
         if(json['code'] == 0){
           var token = json['data']['Token'];
-          print(token);
           final SharedPreferences prefs = await _prefs;
           await prefs.setString('token', token);
           emailController.clear();
           passwordController.clear();
 
-          Get.off(Navigation());
+          Get.off(const Navigation());
         } else if(json['code'] == 1){
           throw jsonDecode(response.body)['message'] ?? 'Unknown Error Occurred';
         }
