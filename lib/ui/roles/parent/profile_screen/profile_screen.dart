@@ -2,16 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kid_trip/ui/login_screen/login_screen.dart';
-import 'package:kid_trip/ui/parent/profile_screen/components/default.dart';
-import 'package:kid_trip/ui/parent/profile_screen/components/profile_element.dart';
+import 'package:kid_trip/ui/roles/parent/profile_screen/personal_data/personal_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../constants/app_assets.dart';
-import '../../../constants/app_colors.dart';
-import '../../../constants/app_styles.dart';
-import '../../../constants/navigator.dart';
+import '../../../../constants/app_assets.dart';
+import '../../../../constants/app_colors.dart';
+import '../../../../constants/app_styles.dart';
+import '../../../../constants/navigator.dart';
+import '../../../widgets/alert_dialog/logout_alert_dialog.dart';
+import 'components/default.dart';
+import 'components/profile_element.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -79,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               onTap: () {
                                 AppNavigator.push(
                                   context: context,
-                                  // page: SettingsProfileView(),
+                                   page: const PersonalDataView(),
                                 );
                               },
                               child: Padding(
@@ -131,25 +133,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                                 SizedBox(height: 4.w),
-                                const Text('Рихард', style: AppStyles.s20w500),
+                                const Text('Aigul', style: AppStyles.s20w500),
                               ],
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 24.w),
                               child: SizedBox(
-                                height: 32.h,
-                                width: 32.w,
+                                height: 24.h,
+                                width: 24.w,
                                 child: InkWell(
                                   onTap: () {
-                                    AppNavigator.push(
-                                      context: context,
-                                      // page: NotificationView(),
-                                    );
+                                    // AppNavigator.push(
+                                    //   context: context,
+                                    //   page: NotificationView(),
+                                    // );
                                   },
                                   child: SvgPicture.asset(
                                     AppAssets.svg.notif,
-                                    height: 32.h,
-                                    width: 32.w,
                                   ),
                                 ),
                               ),
@@ -170,10 +170,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ProfileElement(
                     color: AppColors.veryBlue,
                     onTap: () {
-                      AppNavigator.push(
-                        context: context,
-                        // page: UserFilesView(),
-                      );
+                      // AppNavigator.push(
+                      //   context: context,
+                      //   page: UserFilesView(),
+                      // );
                     },
                     text: "Мои файлы",
                     image: AppAssets.images.my_files,
@@ -181,10 +181,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const Divider(thickness: 1),
                   ProfileElement(
                     onTap: () {
-                      AppNavigator.push(
-                        context: context,
-                        //page: TournamentView(),
-                      );
+                      // AppNavigator.push(
+                      //   context: context,
+                      //   page: TournamentView(),
+                      // );
                     },
                     color: AppColors.yellow,
                     text: "Турнир",
@@ -194,10 +194,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ProfileElement(
                     color: AppColors.primaryGreen,
                     onTap: () {
-                      AppNavigator.push(
-                        context: context,
-                        //    page: InviteFriendView(),
-                      );
+                      // AppNavigator.push(
+                      //   context: context,
+                      //       page: InviteFriendView(),
+                      // );
                     },
                     text: "Пригласить друга",
                     image: AppAssets.images.friend,
@@ -216,12 +216,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     text: "Обратная связь",
                     image: AppAssets.images.feedback,
                   ),
-                  // CustomProfileActions(
-                  //   onTap: () {},
-                  //   color: AppColors.lightPurple,
-                  //   text: AppLocale.of(context).glossary,
-                  //   image: 'assets/icons/glossary.png',
-                  // ),
                   const Divider(thickness: 1),
                 ],
               ),
@@ -235,11 +229,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListTile(
-          onTap: () async {
-              AppNavigator.pushAndRemove(
-                context: context,
-                page: const LoginScreen(),
-              );
+          onTap: ()  {
+            LogoutAlertDialog(context);
           },
           title: const Text('Выйти из аккаунта'),
           trailing: const DefaultContainer(

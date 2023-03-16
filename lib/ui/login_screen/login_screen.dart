@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kid_trip/controllers/login_controller.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
+import '../../domain/controllers/login_controller.dart';
 import '../../generated/l10n.dart';
 import 'components/login_with.dart';
 import 'components/text_buttons.dart';

@@ -5,13 +5,15 @@ abstract class AppAssets {
 
 class _Images {
   const _Images();
-  final String profileImage = 'assets/images/bitmap/profile_image.png';
-  final String kidTaxi = 'assets/images/bitmap/kid_taxi.png';
-  final String profile = 'assets/images/bitmap/profile.png';
-  final String my_files = 'assets/images/bitmap/my_files.png';
-  final String tournament = 'assets/images/bitmap/tournament.png';
-  final String friend = 'assets/images/bitmap/friend.png';
-  final String feedback = 'assets/images/bitmap/feedback.png';
+  final String profileImage = 'assets/images/png/profile_image.png';
+  final String kidTaxi = 'assets/images/png/kid_taxi.png';
+  final String profile = 'assets/images/png/profile.png';
+  final String my_files = 'assets/images/png/my_files.png';
+  final String tournament = 'assets/images/png/tournament.png';
+  final String friend = 'assets/images/png/friend.png';
+  final String feedback = 'assets/images/png/feedback.png';
+  final String searchBg = 'assets/images/png/searchBg.png';
+  final String iconBgNew = 'assets/images/png/iconBgNew.png';
 }
 
 class _Svg {
@@ -20,5 +22,6 @@ class _Svg {
   final String facebook = 'assets/images/svg/facebook.svg';
   final String redact = 'assets/images/svg/redact.svg';
   final String notif = 'assets/images/svg/notif.svg';
+  final String line = 'assets/images/svg/line.svg';
 
 }

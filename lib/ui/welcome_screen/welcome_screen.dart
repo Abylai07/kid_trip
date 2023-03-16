@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../constants/app_colors.dart';
+import '../../domain/repository/api/repo_settings.dart';
 import '../../generated/l10n.dart';
-import '../../repository/Api/repo_settings.dart';
 import 'components/start_button.dart';
 
 class WelcomeScreen extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kid_trip/controllers/registration_controller.dart';
 import 'package:kid_trip/ui/registration_screen/components/input_methods.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
+import '../../../domain/controllers/registration_controller.dart';
 import '../../../generated/l10n.dart';
 import '../../login_screen/components/login_with.dart';
 import 'text_buttons_widget.dart';

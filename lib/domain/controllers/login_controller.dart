@@ -5,22 +5,22 @@ import 'package:kid_trip/utils/api_endpoints.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../ui/parent/parent_navigation/navigation.dart';
+import '../../ui/roles/parent/parent_navigation/parent_navigation.dart';
 
 
-class RegistrationController extends GetxController {
-  TextEditingController nameController = TextEditingController();
+
+
+class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  Future<void> registerWithEmail() async {
+  Future<void> loginWithEmail() async {
     try {
-      var headers = {'Content-Type' : 'application/json'};
-      var url = Uri.parse(ApiEndPoints.baseUrl + ApiEndPoints.authEndPoints.registerEmail);
+      var headers = {'Content-Type': 'application/json'};
+      var url = Uri.parse(ApiEndPoints.baseUrl + ApiEndPoints.authEndPoints.loginEmail);
       Map body = {
-        'name' : nameController.text,
         'email' : emailController.text.trim(),
         'password' : passwordController.text,
       };
@@ -32,14 +32,12 @@ class RegistrationController extends GetxController {
         if(json['code'] == 0){
           var token = json['data']['Token'];
           final SharedPreferences prefs = await _prefs;
-
           await prefs.setString('token', token);
-          nameController.clear();
           emailController.clear();
           passwordController.clear();
 
-          Get.off(const Navigation());
-        } else {
+          Get.off(const ParentNavigation());
+        } else if(json['code'] == 1){
           throw jsonDecode(response.body)['message'] ?? 'Unknown Error Occurred';
         }
       } else {
@@ -52,12 +50,12 @@ class RegistrationController extends GetxController {
           builder: (context) {
             return SimpleDialog(
               title: const Text('Error'),
-                contentPadding: const EdgeInsets.all(20.0),
+              contentPadding: const EdgeInsets.all(20.0),
               children: [
                 Text(e.toString()),
               ],
             );
           });
     }
-}
+  }
 }

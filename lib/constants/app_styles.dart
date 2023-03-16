@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 
 class AppStyles {
@@ -49,4 +50,44 @@ class AppStyles {
       fontWeight: FontWeight.w600,
       color: AppColors.whiteTextColor
   );
+  static const fontFamily = 'Manrope';
+
+  static final headlineLarge = TextStyle(
+      fontSize: 28.sp, fontWeight: FontWeight.w800, fontFamily: fontFamily);
+  static final headlineMedium = TextStyle(
+      fontSize: 26.sp, fontWeight: FontWeight.w700, fontFamily: fontFamily);
+  static final headlineSmall = TextStyle(
+      fontSize: 24.sp, fontWeight: FontWeight.w600, fontFamily: fontFamily);
+
+  static final titleLarge = TextStyle(
+      fontSize: 22.sp, fontWeight: FontWeight.w500, fontFamily: fontFamily);
+  static final titleMedium = TextStyle(
+      fontSize: 20.sp, fontWeight: FontWeight.w400, fontFamily: fontFamily);
+  static final titleMediumBold = TextStyle(
+      fontSize: 20.sp, fontWeight: FontWeight.w600, fontFamily: fontFamily);
+  static final titleSmall = TextStyle(
+      fontSize: 18.sp, fontWeight: FontWeight.w500, fontFamily: fontFamily);
+
+  static final bodyLarge = TextStyle(
+      fontSize: 16.sp, fontWeight: FontWeight.w500, fontFamily: fontFamily);
+  static final bodyMedium = TextStyle(
+      fontSize: 15.sp, fontWeight: FontWeight.w500, fontFamily: fontFamily);
+  static final bodySmall = TextStyle(
+      fontSize: 14.sp, fontWeight: FontWeight.w400, fontFamily: fontFamily);
+
+  static final labelLarge = TextStyle(
+      fontSize: 16.sp, fontWeight: FontWeight.w400, fontFamily: fontFamily);
+  static final labelMedium = TextStyle(
+      fontSize: 14.sp, fontWeight: FontWeight.w500, fontFamily: fontFamily);
+  static final labelSmall = TextStyle(
+      fontSize: 12.sp, fontWeight: FontWeight.w400, fontFamily: fontFamily);
+
+  static final displayLarge =
+  TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400);
+  static final displayMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static final displaySmall =
+  TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400);
 }

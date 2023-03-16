@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:kid_trip/ui/login_screen/components/login_with.dart';
 import 'package:kid_trip/ui/registration_screen/components/input_methods.dart';
 import 'package:kid_trip/ui/registration_screen/components/submit_button.dart';
-import '../../../controllers/registration_controller.dart';
+import '../../../domain/controllers/registration_controller.dart';
 import 'text_buttons_widget.dart';
 
 import '../../../constants/app_colors.dart';

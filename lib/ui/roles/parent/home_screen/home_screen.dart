@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kid_trip/constants/app_assets.dart';
 
-import '../../../constants/app_colors.dart';
+import '../../../../constants/app_colors.dart';
 
 
 
@@ -35,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: MediaQuery.of(context).size.height*0.3,
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/bitmap/searchBg.png")
+                      image: AssetImage(AppAssets.images.searchBg)
                   )
               ),
               child: Column(
@@ -96,9 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text("My children", style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600
@@ -148,9 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     height: 125,
                     width: 150,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/images/bitmap/iconBgNew.png'),
+                            image: AssetImage(AppAssets.images.iconBgNew),
                             fit: BoxFit.contain
                         )
                     ),
@@ -159,8 +160,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: 130,
                   padding: const EdgeInsets.only(left: 5, top: 5),
-                  child: Stack(
-                    children: const [
+                  child: const Stack(
+                    children: [
                       SizedBox(
                         width: 60,
                         height: 60,
@@ -196,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 130,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/images/bitmap/$img.png'),
+                              image: AssetImage('assets/images/png/$img.png'),
                               fit: BoxFit.cover
                           )
                       ),

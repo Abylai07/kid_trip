@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:kid_trip/ui/parent/parent_map/parent_map.dart';
 
-import '../../../constants/app_colors.dart';
-import '../calculator_screen/calculator_screen.dart';
-import '../home_screen/home_screen.dart';
-import '../profile_screen/profile_screen.dart';
+import '../../../../constants/app_colors.dart';
 
 
-class Navigation extends StatefulWidget {
-  const Navigation({super.key});
+class ParentNavigation extends StatefulWidget {
+  const ParentNavigation({super.key});
 
   @override
-  State<Navigation> createState() => _NavigationState();
+  State<ParentNavigation> createState() => _ParentNavigationState();
 }
 
-class _NavigationState extends State<Navigation> {
+class _ParentNavigationState extends State<ParentNavigation> {
   int _selectedPage = 0;
 
   void onSelectPage(int index) {
@@ -26,10 +22,10 @@ class _NavigationState extends State<Navigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
-    const ParentMap(),
-    const CalculatorScreen(),
-    const ProfileScreen(),
+    // const HomeScreen(),
+    // const ParentMap(),
+    // const CalculatorScreen(),
+    // const ProfileScreen(),
   ];
 
   @override

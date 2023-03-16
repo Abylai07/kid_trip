@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kid_trip/ui/login_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/navigator.dart';
-import '../parent/parent_navigation/navigation.dart';
+import '../roles/parent/parent_navigation/parent_navigation.dart';
 
 class CustomSplash extends StatefulWidget {
   const CustomSplash({Key? key}) : super(key: key);
@@ -23,7 +22,7 @@ class _CustomSplashState extends State<CustomSplash> {
           setState(() {
             AppNavigator.pushAndRemove(
               context: context,
-              page: const Navigation(),
+              page: const ParentNavigation(),
             );
           });
         },
