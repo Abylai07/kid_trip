@@ -14,6 +14,9 @@ class _Images {
   final String feedback = 'assets/images/png/feedback.png';
   final String searchBg = 'assets/images/png/searchBg.png';
   final String iconBgNew = 'assets/images/png/iconBgNew.png';
+  final String splash = 'assets/images/png/splash.png';
+  final String icon = 'assets/images/png/icon.png';
+  final String done = 'assets/images/png/done.png';
 }
 
 class _Svg {

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kid_trip/constants/app_styles.dart';
 import 'package:kid_trip/ui/login_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/navigator.dart';
 import '../roles/parent/parent_navigation/parent_navigation.dart';
+import '../welcome_screen/welcome_screen.dart';
 
 class CustomSplash extends StatefulWidget {
   const CustomSplash({Key? key}) : super(key: key);
@@ -34,7 +37,7 @@ class _CustomSplashState extends State<CustomSplash> {
           setState(() {
             AppNavigator.pushAndRemove(
               context: context,
-              page: const LoginScreen(),
+              page: const WelcomeScreen(),
             );
           });
         },
@@ -50,13 +53,18 @@ class _CustomSplashState extends State<CustomSplash> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.mainBGColor,
+    return Scaffold(
+      backgroundColor: AppColors.white,
       body: Center(
-          child: Text(
-        'KidTrip',
-        style: TextStyle(fontSize: 26, color: AppColors.whiteTextColor),
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(AppAssets.images.icon, width: 300,),
+            const SizedBox(height: 24,),
+            const CircularProgressIndicator(),
+          ],
+        ),
+      ),
     );
   }
 }

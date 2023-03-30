@@ -22,15 +22,13 @@ class StartButton extends StatelessWidget {
                 shadowColor: Colors.white),
             onPressed: onPressed,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                const SizedBox(width: 40),
                 Text(
                   buttonText,
                   style: AppStyles.s16w500.merge(const TextStyle(
                       color: AppColors.mainBGColor, fontSize: 20)),
-                ),
-                const SizedBox(
-                  width: 80,
                 ),
                 const CircleAvatar(
                   backgroundColor: AppColors.mainBGColor,

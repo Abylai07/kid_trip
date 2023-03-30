@@ -38,55 +38,21 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(AppAssets.images.searchBg)
+                      image: AssetImage(AppAssets.images.searchBg),
                   )
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text("Hello", style: TextStyle(
+                children: const [
+                  Text("Добро пожаловать", style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'circe'
                   ),),
-                  const Text("Aigul Aiman", style: TextStyle(
+                  Text("Айгул Арманова", style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'circe',
                       fontWeight: FontWeight.w700
                   ),),
-                const SizedBox(
-                  height: 40,
-                ),
-                  Container(
-                    height: 70,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        color: Colors.white
-                    ),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.search,
-                            color: Colors.black,
-                            size: 30,
-                          ), onPressed: () {  },
-                        ),
-                        const Expanded(
-                          child: TextField(
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'circe'
-                            ),
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Search subscriptions"
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 30,)
                 ],
               ),
             ),
@@ -97,14 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 child: Column(
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("My children", style: TextStyle(
+                      children: const [
+                        Text("Мои дети", style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600
                         ),),
-                        Text("See all", style: TextStyle(
+                        Text("Все", style: TextStyle(
                             color: Colors.blueAccent,
                             fontSize: 13
                         ),)
@@ -114,9 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            tutorWidget("girl", "Shyryn Erman", "Kasteev scholl", "0-4", "100"),
-                            tutorWidget("boy2", "Erkhan Erman", "Kasteev scholl", "0-2", "100"),
-                            tutorWidget("boy1", "Rakhman Erman", "Kasteev scholl", "0-2", "100"),
+                            tutorWidget("girl", "Шырын Ерман", "Школа имени Кастеева", "0-4", "100"),
+                            tutorWidget("boy2", "Ермахан Ерман", "Школа имени Кастеева", "0-2", "100"),
+                            tutorWidget("boy1", "Рахман Ерман", "Школа имени Кастеева", "0-2", "100"),
                           ],
                         ),
                       ),
@@ -160,8 +126,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: 130,
                   padding: const EdgeInsets.only(left: 5, top: 5),
-                  child: const Stack(
-                    children: [
+                  child: Stack(
+                    children: const [
                       SizedBox(
                         width: 60,
                         height: 60,

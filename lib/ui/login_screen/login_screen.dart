@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kid_trip/constants/navigator.dart';
+import 'package:kid_trip/ui/roles/parent/parent_navigation/parent_navigation.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
 import '../../domain/controllers/login_controller.dart';
 import '../../generated/l10n.dart';
+import '../roles/driver/driver_navigation/driver_navigation.dart';
 import 'components/login_with.dart';
 import 'components/text_buttons.dart';
 
@@ -118,7 +121,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   foregroundColor: buttonTextColor,
                   backgroundColor: buttonColor, // foreground
                 ),
-                onPressed: () => loginController.loginWithEmail(),
+                onPressed: () {
+                  AppNavigator.push(context: context, page: const ParentNavigation());
+                   // loginController.loginWithEmail();
+                },
                 child: Text(S.of(context).signIn),
               ),
             ),
@@ -129,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 20,
             ),
-            const LoginWith(),
+            // const LoginWith(),
           ],
         ),
       ),

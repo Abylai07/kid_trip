@@ -46,7 +46,7 @@ class _ChildScreenState extends State<ChildScreen> {
                         height: 240,
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('assets/images/bitmap/iconBg.png'),
+                                image: AssetImage('assets/images/png/iconBg.png'),
                                 fit: BoxFit.contain
                             )
                         ),
@@ -62,7 +62,7 @@ class _ChildScreenState extends State<ChildScreen> {
                           width: 200,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('assets/images/bitmap/boy2.png')
+                                  image: AssetImage('assets/images/png/boy2.png')
                               )
                           ),
                         ),
@@ -117,7 +117,7 @@ class _ChildScreenState extends State<ChildScreen> {
                             width: 20,
                             decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage('assets/images/bitmap/palette.png')
+                                    image: AssetImage('assets/images/png/palette.png')
                                 )
                             ),
                           ),
@@ -153,9 +153,9 @@ class _ChildScreenState extends State<ChildScreen> {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            courseWidget("", "Today", "09:00", AppColors.lightBlue, AppColors.darkBlue),
-                            courseWidget("", "Tomorrow", "09:00", AppColors.yellow, const Color(0xff4d4d4d)),
-                            courseWidget("", "Friday", "09:00", AppColors.pink, const Color(0xff4a155f))
+                            courseWidget("", "Сегодня", "09:00", AppColors.lightBlue, AppColors.darkBlue),
+                            courseWidget("", "Завтра", "09:00", AppColors.yellow, const Color(0xff4d4d4d)),
+                            courseWidget("", "Суббота", "09:00", AppColors.pink, const Color(0xff4a155f))
                           ],
                         ),
                       ),
@@ -172,7 +172,7 @@ class _ChildScreenState extends State<ChildScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          for(int i=0; i < 7; i++)
+                          for(int i = 0; i < 7; i++)
                             dateWidget(i),
                         ],
                       ),

@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../../../constants/app_colors.dart';
+import '../../parent/home_screen/home_screen.dart';
+import '../../parent/parent_map/parent_map.dart';
+import '../../parent/schedule_screen/calculator_screen.dart';
 
 
-class ParentNavigation extends StatefulWidget {
-  const ParentNavigation({super.key});
+class DriverNavigation extends StatefulWidget {
+  const DriverNavigation({super.key});
 
   @override
-  State<ParentNavigation> createState() => _ParentNavigationState();
+  State<DriverNavigation> createState() => _DriverNavigationState();
 }
 
-class _ParentNavigationState extends State<ParentNavigation> {
+class _DriverNavigationState extends State<DriverNavigation> {
   int _selectedPage = 0;
 
   void onSelectPage(int index) {
@@ -22,10 +25,10 @@ class _ParentNavigationState extends State<ParentNavigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    // const HomeScreen(),
-    // const ParentMap(),
-    // const CalculatorScreen(),
-    // const ProfileScreen(),
+    const HomeScreen(),
+    const ParentMap(),
+    const CalculatorScreen(),
+   // const ProfileScreen(),
   ];
 
   @override

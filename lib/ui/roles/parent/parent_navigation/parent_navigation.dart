@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:kid_trip/ui/roles/parent/schedule_screen/schedule_screen.dart';
 
 import '../../../../constants/app_colors.dart';
-import '../calculator_screen/calculator_screen.dart';
 import '../home_screen/home_screen.dart';
 import '../parent_map/parent_map.dart';
 import '../profile_screen/profile_screen.dart';
+import '../trips_screen/trips_screen.dart';
 
 
 class ParentNavigation extends StatefulWidget {
@@ -28,7 +29,8 @@ class _ParentNavigationState extends State<ParentNavigation> {
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const ParentMap(),
-    const CalculatorScreen(),
+    const TripsScreen(),
+    //const ScheduleScreen(),
     const ProfileScreen(),
   ];
 
@@ -39,6 +41,7 @@ class _ParentNavigationState extends State<ParentNavigation> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedPage),
       ),
+
       bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,

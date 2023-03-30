@@ -55,112 +55,106 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24),
-                    ),
-                    child: Image.asset(AppAssets.images.profile),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: 18.w,
-                      left: 18.w,
-                      top: 70.w,
-                    ),
-                    child: Column(
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppColors.mainBGColor,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(24), bottomRight: Radius.circular(24)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  right: 18.w,
+                  left: 18.w,
+                  top: 70.w,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                AppNavigator.push(
-                                  context: context,
-                                   page: const PersonalDataView(),
-                                );
-                              },
+                        InkWell(
+                          onTap: () {
+                            AppNavigator.push(
+                              context: context,
+                               page: const PersonalDataView(),
+                            );
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 12.w),
+                            child: DefaultContainer(
+                              color: AppColors.white.withOpacity(0.2),
                               child: Padding(
-                                padding: EdgeInsets.only(left: 12.w),
-                                child: DefaultContainer(
-                                  color: AppColors.white.withOpacity(0.2),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.w),
-                                    child: SvgPicture.asset(
-                                      AppAssets.svg.redact,
-                                      color: AppColors.white,
-                                      width: 24.w,
-                                      height: 24.w,
-                                    ),
-                                  ),
+                                padding: EdgeInsets.all(8.w),
+                                child: SvgPicture.asset(
+                                  AppAssets.svg.redact,
+                                  color: AppColors.white,
+                                  width: 24.w,
+                                  height: 24.w,
                                 ),
                               ),
                             ),
-                            Column(
-                              children: [
-                                SizedBox(height: 20.w),
-                                Container(
-                                  child: imgPath != null
-                                      ? SizedBox(
-                                    width: 128.sp,
-                                    height: 128.sp,
-                                    child: ClipRRect(
-                                      borderRadius:
-                                      BorderRadius.circular(90.0),
-                                      child: Image.file(
-                                        File(imgPath!),
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                  )
-                                      : Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        width: 1.w,
-                                        color: AppColors.darkGray,
-                                      ),
-                                    ),
-                                    child: Icon(
-                                      Icons.person,
-                                      color: Colors.blueGrey,
-                                      size: 128.sp,
-                                    ),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(height: 20.w),
+                            Container(
+                              child: imgPath != null
+                                  ? SizedBox(
+                                width: 128.sp,
+                                height: 128.sp,
+                                child: ClipRRect(
+                                  borderRadius:
+                                  BorderRadius.circular(90.0),
+                                  child: Image.file(
+                                    File(imgPath!),
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
-                                SizedBox(height: 4.w),
-                                const Text('Aigul', style: AppStyles.s20w500),
-                              ],
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(right: 24.w),
-                              child: SizedBox(
-                                height: 24.h,
-                                width: 24.w,
-                                child: InkWell(
-                                  onTap: () {
-                                    // AppNavigator.push(
-                                    //   context: context,
-                                    //   page: NotificationView(),
-                                    // );
-                                  },
-                                  child: SvgPicture.asset(
-                                    AppAssets.svg.notif,
+                              )
+                                  : Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    width: 1.w,
+                                    color: AppColors.darkGray,
                                   ),
+                                ),
+                                child: Icon(
+                                  Icons.person,
+                                  color: Colors.blueGrey,
+                                  size: 128.sp,
                                 ),
                               ),
-                            )
+                            ),
+                            SizedBox(height: 4.w),
+                            const Text('Aigul', style: AppStyles.s20w500),
                           ],
                         ),
-                        SizedBox(height: 4.w),
+                        Padding(
+                          padding: EdgeInsets.only(right: 24.w),
+                          child: SizedBox(
+                            height: 24.h,
+                            width: 24.w,
+                            child: InkWell(
+                              onTap: () {
+                                // AppNavigator.push(
+                                //   context: context,
+                                //   page: NotificationView(),
+                                // );
+                              },
+                              child: SvgPicture.asset(
+                                AppAssets.svg.notif,
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                  )
-                ],
+                    SizedBox(height: 24.w),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -175,7 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //   page: UserFilesView(),
                       // );
                     },
-                    text: "Мои файлы",
+                    text: "Мои поездки",
                     image: AppAssets.images.my_files,
                   ),
                   const Divider(thickness: 1),

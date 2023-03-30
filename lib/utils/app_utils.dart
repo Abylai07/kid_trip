@@ -6,11 +6,26 @@ class AppUtils {
     mask: '+7 (###) ###-##-##',
     filter: {"#": RegExp(r'[0-9]')},
   );
+
+  static MaskTextInputFormatter iinMaskFormatter = MaskTextInputFormatter(
+    mask: '###### ######',
+    filter: {"#": RegExp(r'[0-9]')},
+  );
   static MaskTextInputFormatter textMaskFormatter = MaskTextInputFormatter();
 
   static MaskTextInputFormatter dateMaskFormatter = MaskTextInputFormatter(
-    mask: '##.##.####',
+    mask: '##/##/####',
     filter: {"#": RegExp(r'[0-9]')},
+  );
+
+  static MaskTextInputFormatter yearMaskFormatter = MaskTextInputFormatter(
+    mask: '####',
+    filter: {"#": RegExp(r'[0-9]')},
+  );
+
+  static MaskTextInputFormatter carNumberMaskFormatter = MaskTextInputFormatter(
+    mask: '###/@@@/##',
+    filter: {"#": RegExp(r'[0-9]'), "@" : RegExp(r"^[a-zA-Z]")},
   );
 
   static MaskTextInputFormatter timeMaskFormatter = MaskTextInputFormatter(
