@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   backgroundColor: buttonColor, // foreground
                 ),
                 onPressed: () {
-                  AppNavigator.push(context: context, page: const ParentNavigation());
+                  AppNavigator.push(context: context, page: const DriverNavigation());
                    // loginController.loginWithEmail();
                 },
                 child: Text(S.of(context).signIn),

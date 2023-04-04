@@ -15,8 +15,10 @@ class _Images {
   final String searchBg = 'assets/images/png/searchBg.png';
   final String iconBgNew = 'assets/images/png/iconBgNew.png';
   final String splash = 'assets/images/png/splash.png';
-  final String icon = 'assets/images/png/icon.png';
+  final String logo = 'assets/images/png/logo.png';
   final String done = 'assets/images/png/done.png';
+  final String pointA = 'assets/images/png/point_a.png';
+  final String pointB = 'assets/images/png/point_b.png';
 }
 
 class _Svg {
@@ -26,5 +28,5 @@ class _Svg {
   final String redact = 'assets/images/svg/redact.svg';
   final String notif = 'assets/images/svg/notif.svg';
   final String line = 'assets/images/svg/line.svg';
-
+  final String points = 'assets/images/svg/points.svg';
 }

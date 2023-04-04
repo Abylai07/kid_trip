@@ -59,7 +59,7 @@ class _CustomSplashState extends State<CustomSplash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(AppAssets.images.icon, width: 300,),
+            Image.asset(AppAssets.images.splash, width: 300,),
             const SizedBox(height: 24,),
             const CircularProgressIndicator(),
           ],

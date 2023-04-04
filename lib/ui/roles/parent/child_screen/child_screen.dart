@@ -4,7 +4,11 @@ import '../../../../constants/app_colors.dart';
 
 
 class ChildScreen extends StatefulWidget {
-  const ChildScreen({super.key});
+  const ChildScreen({super.key, required this.name, required this.school, required this.image});
+
+  final String name;
+  final String school;
+  final String image;
 
   @override
   State<ChildScreen> createState() => _ChildScreenState();
@@ -56,13 +60,13 @@ class _ChildScreenState extends State<ChildScreen> {
                       bottom: 0,
                       left: 20,
                       child: Hero(
-                        tag: "boy1",
+                        tag: "child",
                         child: Container(
                           height: 220,
                           width: 200,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('assets/images/png/boy2.png')
+                                  image: AssetImage(widget.image)
                               )
                           ),
                         ),
@@ -77,13 +81,13 @@ class _ChildScreenState extends State<ChildScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Erkhan Erman", style: TextStyle(
+                      Text(widget.name, style: const TextStyle(
                           fontSize: 21,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'product'
                       ),),
                       const SizedBox(height: 5,),
-                      const Text("Kasstev scholl", style: TextStyle(
+                      Text(widget.school, style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: AppColors.darkBlue,

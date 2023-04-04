@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kid_trip/constants/app_colors.dart';
 import 'package:kid_trip/constants/app_styles.dart';
 
-class ScheduleScreen extends StatefulWidget {
-  const ScheduleScreen({Key? key}) : super(key: key);
+class ScheduleDriver extends StatefulWidget {
+  const ScheduleDriver({Key? key}) : super(key: key);
 
   @override
-  State<ScheduleScreen> createState() => _ScheduleScreenState();
+  State<ScheduleDriver> createState() => _ScheduleDriverState();
 }
 
-class _ScheduleScreenState extends State<ScheduleScreen> with SingleTickerProviderStateMixin {
+class _ScheduleDriverState extends State<ScheduleDriver> with SingleTickerProviderStateMixin {
 
   late TabController _tabController;
   @override

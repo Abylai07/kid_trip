@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:kid_trip/ui/roles/driver/map_screen/driver_map.dart';
+import 'package:kid_trip/ui/roles/driver/profile_screen/profile_driver.dart';
+import 'package:kid_trip/ui/roles/driver/schedule_screen/schedule_driver.dart';
 
 import '../../../../constants/app_colors.dart';
-import '../../parent/home_screen/home_screen.dart';
-import '../../parent/parent_map/parent_map.dart';
-import '../../parent/schedule_screen/calculator_screen.dart';
 
 
 class DriverNavigation extends StatefulWidget {
@@ -15,7 +15,7 @@ class DriverNavigation extends StatefulWidget {
 }
 
 class _DriverNavigationState extends State<DriverNavigation> {
-  int _selectedPage = 0;
+  int _selectedPage = 1;
 
   void onSelectPage(int index) {
     setState(() {
@@ -25,10 +25,9 @@ class _DriverNavigationState extends State<DriverNavigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
-    const ParentMap(),
-    const CalculatorScreen(),
-   // const ProfileScreen(),
+    const ScheduleDriver(),
+    const DriverMap(),
+    const ProfileDriver(),
   ];
 
   @override
@@ -63,22 +62,18 @@ class _DriverNavigationState extends State<DriverNavigation> {
                 color: Colors.black87,
                 tabs: const [
                   GButton(
-                    icon: Icons.home_filled,
-                    text: 'Home',
-                  ),
+                  icon: Icons.calendar_month,
+                  text: 'Schedule',
+                ),
                   GButton(
                     icon: Icons.map,
                     text: 'Map',
                   ),
-                  GButton(
-                    icon: Icons.calendar_month,
-                    text: 'Schedule',
-                  ),
+
                   GButton(
                     icon: Icons.person_rounded,
                     text: 'Profile',
                   ),
-
                 ],
                 selectedIndex: _selectedPage,
                 onTabChange: onSelectPage,

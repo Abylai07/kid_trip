@@ -5,11 +5,9 @@ import 'package:kid_trip/ui/login_screen/login_screen.dart';
 import 'package:kid_trip/ui/registration_screen/roles/registration_driver.dart';
 import 'package:kid_trip/ui/registration_screen/roles/registration_parents.dart';
 import 'package:kid_trip/ui/registration_screen/registration_screen.dart';
-import 'package:kid_trip/ui/roles/driver/map_screen/map_screen.dart';
-import 'package:kid_trip/ui/roles/parent/child_screen/child_screen.dart';
+import 'package:kid_trip/ui/roles/driver/map_screen/driver_map.dart';
 import 'package:kid_trip/ui/roles/parent/home_screen/home_screen.dart';
 import 'package:kid_trip/ui/roles/parent/parent_map/parent_map.dart';
-import 'package:kid_trip/ui/roles/parent/schedule_screen/calculator_screen.dart';
 import 'package:kid_trip/ui/splash/splash.dart';
 import 'package:kid_trip/ui/welcome_screen/welcome_screen.dart';
 import 'package:provider/provider.dart';
@@ -54,13 +52,6 @@ class KidTrip extends StatelessWidget {
               '/registration_screen': (context) => const RegistrationScreen(),
               '/registration_driver': (context) => const RegistrationDriver(),
               '/registration_parents': (context) => const RegistrationParents(),
-              //parent
-              '/home_screen': (context) => const HomeScreen(),
-              '/calculator_screen': (context) => const CalculatorScreen(),
-              '/child_screen': (context) => const ChildScreen(),
-              '/parent_map': (context) => const ParentMap(),
-              //driver
-              '/map_screen': (context) => const MapSample(),
             },
             initialRoute: '/',
             localizationsDelegates: const [

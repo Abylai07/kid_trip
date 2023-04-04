@@ -40,7 +40,7 @@ dependencies:
   google_api_headers: ^1.1.1
   google_maps_webservice: ^0.0.20-nullsafety.5
 
-  modal_bottom_sheet: ^3.0.0
+  modal_bottom_sheet: ^3.0.0-pre
   flutter_screenutil: ^5.0.0+2
   flutter_polyline_points: ^1.0.0
   dio: ^4.0.0
@@ -66,20 +66,19 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/images/icon.png
+  image: assets/images/splashsplash.png
   android: true
   ios: true
   web: false
 
 
 dependency_overrides:
-  modal_bottom_sheet: ^3.0.0-pre
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

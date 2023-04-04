@@ -3,14 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapSample extends StatefulWidget {
-  const MapSample({Key? key}) : super(key: key);
+import '../../../../constants/app_colors.dart';
+
+class DriverMap extends StatefulWidget {
+  const DriverMap({Key? key}) : super(key: key);
 
   @override
-  State<MapSample> createState() => MapSampleState();
+  State<DriverMap> createState() => DriverMapState();
 }
 
-class MapSampleState extends State<MapSample> {
+class DriverMapState extends State<DriverMap> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
@@ -28,6 +30,35 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        toolbarHeight: 100,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const CircleAvatar(
+            backgroundColor: AppColors.blackTextColor,
+            child: Icon(
+              Icons.menu,
+              color: AppColors.white,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+        actions: [
+          IconButton(
+              iconSize: 40,
+              onPressed: () {},
+              icon: const CircleAvatar(
+                child: Icon(
+                  Icons.person,
+                  size: 24,
+                ),
+              )),
+        ],
+      ),
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: _kAlmaty,
