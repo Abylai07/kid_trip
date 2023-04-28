@@ -3,7 +3,6 @@ import 'package:kid_trip/constants/app_styles.dart';
 import 'package:kid_trip/utils/app_utils.dart';
 
 import '../../../../constants/app_colors.dart';
-import '../../../../domain/controllers/registration_controller.dart';
 import '../../components/input_methods.dart';
 
 class MainData extends StatefulWidget {

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kid_trip/constants/app_assets.dart';
+import 'package:kid_trip/ui/login_screen/login_screen.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
 import '../../../constants/navigator.dart';
-import '../../roles/parent/parent_navigation/parent_navigation.dart';
+import '../../roles/parent/parent_navigation.dart';
 
-successAlertDialog({required BuildContext context, required String title, required String buttonText}) {
+successAlertDialog({required BuildContext context, required String title, required String buttonText, required Function() onPressed}) {
   showDialog(
     barrierDismissible: true,
     context: context,
@@ -36,10 +37,7 @@ successAlertDialog({required BuildContext context, required String title, requir
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.mainBGColor,
               ),
-              onPressed: () {
-                AppNavigator.push(
-                    context: context, page: const ParentNavigation());
-              },
+              onPressed: onPressed,
               child: Text(buttonText),
             ),
           ),

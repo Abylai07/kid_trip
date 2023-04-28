@@ -4,11 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'data/end_points.dart';
 import 'data/network_call.dart';
 
-final sl = GetIt.instance;
+final GetIt sl = GetIt.instance;
 
 void init() async {
   _commonModule();
-  _apiServiceModule();
+  await _apiServiceModule();
   _dataSourceModule();
   _repositoryModule();
 }
@@ -16,7 +16,7 @@ void init() async {
 /// для общих зависимостей
 void _commonModule() {}
 
-void _apiServiceModule() async {
+Future _apiServiceModule() async {
   sl.registerLazySingleton(() => NetworkCall());
   sl.registerLazySingleton(() => AppData());
 }

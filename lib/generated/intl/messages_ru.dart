@@ -41,8 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Цена"),
         "register": MessageLookupByLibrary.simpleMessage("Регистрируйтесь"),
         "select": MessageLookupByLibrary.simpleMessage("Выбирайте"),
-        "selectLanguage":
-            MessageLookupByLibrary.simpleMessage("Выбирайте язык"),
+        "selectLanguage": MessageLookupByLibrary.simpleMessage("Выберите язык"),
         "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Регистрация"),
         "start": MessageLookupByLibrary.simpleMessage("Начать"),
@@ -52,7 +51,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Вместе другими детьми(микроавтобус)"),
         "weekToSchool": MessageLookupByLibrary.simpleMessage(
             "Сколько дней в неделю в школу?"),
-        "welcome":
-            MessageLookupByLibrary.simpleMessage("Добро пожаловать в KidTrip")
+        "welcome": MessageLookupByLibrary.simpleMessage("Добро пожаловать")
       };
 }

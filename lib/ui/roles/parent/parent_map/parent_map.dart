@@ -5,8 +5,11 @@ import 'package:flutter/services.dart';
 
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kid_trip/constants/app_colors.dart';
+import 'package:kid_trip/constants/navigator.dart';
+import 'package:kid_trip/ui/roles/parent/parent_navigation.dart';
 import 'dart:ui' as ui;
+
+import '../../../../constants/app_assets.dart';
 
 class ParentMap extends StatefulWidget {
   const ParentMap({Key? key}) : super(key: key);
@@ -103,30 +106,30 @@ class ParentMapState extends State<ParentMap> {
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          toolbarHeight: 100,
-          leading: IconButton(
-              onPressed: () {},
-              icon: const CircleAvatar(
-                backgroundColor: AppColors.blackTextColor,
-                child: Icon(
-                  Icons.menu,
-                  color: AppColors.white,
-                ),
-              ),
-          ),
           backgroundColor: Colors.transparent,
-          bottomOpacity: 0.0,
-          elevation: 0.0,
+          elevation: 0,
+          leadingWidth: 180,
+          leading: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: GestureDetector(
+              onTap: (){
+                AppNavigator.push(context: context, page: const ParentNavigation());
+              },
+              child: Image.asset(
+                AppAssets.images.logo,
+              ),
+            ),
+          ),
           actions: [
             IconButton(
-                iconSize: 40,
-                onPressed: () {},
-                icon: const CircleAvatar(
-                  child: Icon(
-                    Icons.person,
-                    size: 24,
-                  ),
-                )),
+              icon: const Icon(
+                Icons.notifications_none,
+                color: Colors.black,
+                size: 30,
+              ),
+              onPressed: () {
+              },
+            )
           ],
         ),
         body: GoogleMap(

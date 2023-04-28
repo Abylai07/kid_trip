@@ -23,7 +23,7 @@ class AppButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          padding: EdgeInsets.all(12.w),
+          padding: EdgeInsets.all(14.w),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.w),
           ),

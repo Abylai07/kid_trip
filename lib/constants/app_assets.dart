@@ -14,11 +14,17 @@ class _Images {
   final String feedback = 'assets/images/png/feedback.png';
   final String searchBg = 'assets/images/png/searchBg.png';
   final String iconBgNew = 'assets/images/png/iconBgNew.png';
-  final String splash = 'assets/images/png/splash.png';
+  final String splash = 'assets/images/png/splash-icon.png';
   final String logo = 'assets/images/png/logo.png';
   final String done = 'assets/images/png/done.png';
   final String pointA = 'assets/images/png/point_a.png';
   final String pointB = 'assets/images/png/point_b.png';
+  final String carousel1 = 'assets/images/png/carousel1.png';
+  final String carousel2 = 'assets/images/png/carousel2.png';
+  final String carousel3 = 'assets/images/png/carousel3.png';
+  final String debitCard = 'assets/images/png/debit-card.png';
+  final String language = 'assets/images/png/language.png';
+  final String driver = 'assets/images/png/driver.png';
 }
 
 class _Svg {

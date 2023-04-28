@@ -8,8 +8,9 @@ class AppStorageKeys {
 
 class ApiConstants {
   const ApiConstants();
-  static const String host = 'https://lmsyoko.store';
-  static const String endpointRest = '$host/api/v1/';
+  static const String host = 'http://192.168.177.207/api/';
+
+  static const String endpointRest = 'http://192.168.1.114:8085/api/';
   static const _HttpStatusCode httpStatusCode = _HttpStatusCode();
 }
 

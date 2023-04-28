@@ -5,9 +5,7 @@ import 'package:kid_trip/ui/login_screen/login_screen.dart';
 import 'package:kid_trip/ui/registration_screen/roles/registration_driver.dart';
 import 'package:kid_trip/ui/registration_screen/roles/registration_parents.dart';
 import 'package:kid_trip/ui/registration_screen/registration_screen.dart';
-import 'package:kid_trip/ui/roles/driver/map_screen/driver_map.dart';
-import 'package:kid_trip/ui/roles/parent/home_screen/home_screen.dart';
-import 'package:kid_trip/ui/roles/parent/parent_map/parent_map.dart';
+import 'package:kid_trip/domain/get_it_sl.dart' as service_locator;
 import 'package:kid_trip/ui/splash/splash.dart';
 import 'package:kid_trip/ui/welcome_screen/welcome_screen.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +15,7 @@ import 'generated/l10n.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  service_locator.init();
   final repoSettings = RepoSettings();
   await repoSettings.init();
   var defaultLocale = const Locale('ru');

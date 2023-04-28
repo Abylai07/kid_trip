@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kid_trip/constants/app_colors.dart';
-import 'package:kid_trip/constants/navigator.dart';
-import 'package:kid_trip/ui/roles/parent/trips_screen/components/one_time_trip.dart';
+import 'package:kid_trip/ui/roles/parent/trips_screen/one_time_trip.dart';
 
-import '../../parent_map/components/location_service.dart';
-import '../../parent_map/parent_map.dart';
+import '../../../../../constants/app_assets.dart';
+import '../../../../../constants/navigator.dart';
+import '../../parent_navigation.dart';
 import 'components/directions_model.dart';
 import 'components/direstions_repository.dart';
-import 'components/float_action_button.dart';
 
 class SelectLocation extends StatefulWidget {
   const SelectLocation({Key? key}) : super(key: key);
@@ -63,35 +63,63 @@ class SelectLocationState extends State<SelectLocation> {
     });
   }
 
+  void tripModalBottom() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        isDismissible: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
+        builder: (context) {
+          return OneTimeTrip(
+            latLngA: _origin?.position,
+            latLngB: _destination?.position,
+            distance: _info?.totalDistance,
+            time: _info?.totalDuration,
+          );
+        });
+  }
+
+  Future<Position> getCurrentLocation() async {
+    await Geolocator.requestPermission().then((value) {
+
+    }).onError((error, stackTrace) {
+      print('error $error');
+    });
+
+    return await Geolocator.getCurrentPosition();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        toolbarHeight: 100,
-        leading: IconButton(
-            onPressed: () {},
-            icon: const CircleAvatar(
-              backgroundColor: AppColors.blackTextColor,
-              child: Icon(
-                Icons.menu,
-                color: Colors.white,
-              ),
-            )),
         backgroundColor: Colors.transparent,
-        bottomOpacity: 0.0,
-        elevation: 0.0,
+        elevation: 0,
+        leadingWidth: 180,
+        leading: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: GestureDetector(
+            onTap: (){
+              AppNavigator.push(context: context, page: const ParentNavigation());
+            },
+            child: Image.asset(
+              AppAssets.images.logo,
+            ),
+          ),
+        ),
         actions: [
           IconButton(
-              iconSize: 40,
-              onPressed: () {},
-              icon: const CircleAvatar(
-                child: Icon(
-                  Icons.person,
-                  size: 24,
-                ),
-              )),
+            icon: const Icon(
+              Icons.notifications_none,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+            },
+          )
         ],
       ),
       body: Stack(
@@ -150,33 +178,28 @@ class SelectLocationState extends State<SelectLocation> {
             ),
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FloatingActionButton.extended(
-            onPressed: () async {
-              AppNavigator.push(
-                context: context,
-                page: OneTimeTrip(
-                  latLngA: _origin?.position,
-                  latLngB: _destination?.position,
-                  distance: _info?.totalDistance,
-                  time: _info?.totalDuration,
-                ),
-              );
-              // var place =
-              //     await LocationService().getPlace(firstPointController.text);
-              // SelectLocationState().goToThePlace(place);
-            },
-            label: const Text('Выбрать'),
-          ),
-          // FloatingActionButton(
-          //     onPressed: () async {
-          //       SelectLocationState().goRoute();
-          // },
-          // child: const Text('GO'),
-          // ),
-        ],
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: FloatingActionButton.extended(
+          backgroundColor: AppColors.mainBGColor,
+            onPressed: () {
+              getCurrentLocation().then((value) => {
+              //  print('my location ${value.longitude} ${value.latitude}'),
+                _markers.add(
+                   Marker(
+                    markerId: const MarkerId('my'),
+                    position: LatLng(value.latitude, value.latitude),
+                    infoWindow: const InfoWindow(title: 'My current location')
+                  ),
+                )
+              });
+              setState(() {
+
+              });
+              //tripModalBottom();
+        },
+        label:  const Text('Нажмите здесь для поиска'),
+        ),
       ),
     );
   }

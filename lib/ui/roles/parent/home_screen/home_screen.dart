@@ -6,6 +6,8 @@ import 'package:kid_trip/ui/roles/parent/child_screen/child_screen.dart';
 
 import '../../../../constants/app_colors.dart';
 import '../../../../constants/navigator.dart';
+import '../../../widgets/buttons/app_button.dart';
+import '../parent_navigation.dart';
 import 'components/trip_history_widget.dart';
 import 'components/tutor_widget.dart';
 
@@ -26,8 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
         leadingWidth: 180,
         leading: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Image.asset(
-            AppAssets.images.logo,
+          child: GestureDetector(
+            onTap: (){
+              AppNavigator.push(context: context, page: const ParentNavigation());
+            },
+            child: Image.asset(
+              AppAssets.images.logo,
+            ),
           ),
         ),
         actions: [
@@ -37,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () {
+            },
           )
         ],
       ),
@@ -46,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -75,7 +83,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           AppNavigator.push(context: context, page: const ChildScreen(name: 'Рахман Ерман', school: 'Школа имени Кастеева', image: 'assets/images/png/boy1.png',));
                         }),
-                    const SizedBox(height: 14),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: AppButton(onPressed: () {  },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text('Добавить ребенка'),
+                          SizedBox(width: 12),
+                          Icon(Icons.add_circle),
+                        ],
+                      ),),
+                    ),
                     Text("Ближайшие поездки", style: AppStyles.titleSmall),
                     const TripHistoryWidget(
                       pointA: 'Абая 56',

@@ -12,11 +12,11 @@ import 'constants.dart';
 
 class NetworkCall {
   // next three lines makes this class a Singleton
-  static NetworkCall _instance = NetworkCall.internal();
+  static final NetworkCall _instance = NetworkCall.internal();
   NetworkCall.internal();
   factory NetworkCall() => _instance;
 
-  final JsonDecoder _decoder = JsonDecoder();
+  final JsonDecoder _decoder = const JsonDecoder();
   var baseUrl = ApiConstants.endpointRest;
 
   dynamic _decodedRes;
@@ -29,8 +29,7 @@ class NetworkCall {
     Map<String, dynamic>? data,
   }) async {
     BaseOptions options = BaseOptions(
-      // headers: {'Authorization': 'Token $accessToken'},
-      baseUrl: baseUrl, //base server url
+      baseUrl: baseUrl,
       method: method,
       contentType: ContentType.parse("application/json").value,
     );
@@ -44,16 +43,16 @@ class NetworkCall {
         queryParameters: requestParams,
         data: body,
       );
-
       _decodedRes = _decoder.convert(response.toString());
       return _decodedRes;
     } on DioError catch (error) {
+      print(error);
       if (error.response!.statusCode! > 300) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             elevation: 0,
             backgroundColor: AppColors.red,
-            content: Text('${error.response?.data['detail']}'),
+            content: Text('${error.response?.data['message']}'),
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

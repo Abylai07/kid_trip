@@ -18,8 +18,8 @@ class StartButton extends StatelessWidget {
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
-                backgroundColor: Colors.white,
-                shadowColor: Colors.white),
+                backgroundColor: AppColors.mainBGColor,
+              ),
             onPressed: onPressed,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,13 +28,13 @@ class StartButton extends StatelessWidget {
                 Text(
                   buttonText,
                   style: AppStyles.s16w500.merge(const TextStyle(
-                      color: AppColors.mainBGColor, fontSize: 20)),
+                      color: AppColors.white, fontSize: 20)),
                 ),
                 const CircleAvatar(
                   backgroundColor: AppColors.mainBGColor,
                   child: Icon(
                     Icons.navigate_next,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ],

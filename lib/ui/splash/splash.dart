@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/navigator.dart';
-import '../roles/parent/parent_navigation/parent_navigation.dart';
+import '../roles/parent/parent_navigation.dart';
 import '../welcome_screen/welcome_screen.dart';
 
 class CustomSplash extends StatefulWidget {

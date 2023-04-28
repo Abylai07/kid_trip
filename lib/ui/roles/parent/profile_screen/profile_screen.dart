@@ -23,20 +23,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // AppData api = AppData();
-  // UserModel userModel = UserModel();
-  // fetchUserData() async {
-  //   var result = await api.fetchUserData(context: context);
-  //   if (result != null) {
-  //     print("UserData ----$result");
-  //     setState(() {
-  //       userModel = UserModel.fromJson(result);
-  //     });
-  //   }
-  // }
+
   @override
   void initState() {
-    //fetchUserData();
+    getImage();
     super.initState();
   }
 
@@ -46,6 +36,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() {
       imgPath = sharedPref.getString('image');
     });
+  }
+
+  Future stateRemove() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('token');
   }
 
   @override
@@ -169,8 +164,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //   page: UserFilesView(),
                       // );
                     },
-                    text: "Мои поездки",
-                    image: AppAssets.images.my_files,
+                    text: "Мои дети",
+                    image: AppAssets.images.friend,
                   ),
                   const Divider(thickness: 1),
                   ProfileElement(
@@ -180,25 +175,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //   page: TournamentView(),
                       // );
                     },
-                    color: AppColors.yellow,
-                    text: "Турнир",
-                    image: AppAssets.images.tournament,
+                    color: AppColors.veryBlue,
+                    text: "Мои платежи",
+                    image: AppAssets.images.debitCard,
                   ),
                   const Divider(thickness: 1),
                   ProfileElement(
-                    color: AppColors.primaryGreen,
+                    color: AppColors.veryBlue,
                     onTap: () {
-                      // AppNavigator.push(
-                      //   context: context,
-                      //       page: InviteFriendView(),
-                      // );
+                      _showModalSheet(context);
                     },
-                    text: "Пригласить друга",
-                    image: AppAssets.images.friend,
+                    text: "Сменить язык",
+                    image: AppAssets.images.language,
                   ),
                   const Divider(thickness: 1),
                   ProfileElement(
-                    color: AppColors.pink,
+                    color: AppColors.veryBlue,
                     onTap: () {
                       // Navigator.push(
                       //   context,
@@ -207,7 +199,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //   ),
                       // );
                     },
-                    text: "Обратная связь",
+                    text: "Служба поддержки",
                     image: AppAssets.images.feedback,
                   ),
                   const Divider(thickness: 1),
@@ -224,16 +216,186 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListTile(
           onTap: ()  {
+            stateRemove();
             LogoutAlertDialog(context);
           },
           title: const Text('Выйти из аккаунта'),
           trailing: const DefaultContainer(
             color: AppColors.lightGray,
-            child: Icon(Icons.arrow_forward, color: AppColors.primaryGreen),
+            child: Icon(Icons.arrow_forward, color: AppColors.mainBGColor),
           ),
         ),
       ),
     ),
+    );
+  }
+  _showModalSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+            color: Color(0xffF7F8F9),
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
+          ),
+          child: SafeArea(
+            top: false,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Қазақша",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: AppColors.mainBGColor,
+                              width: 2,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(1),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color:  Colors.transparent,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Русский",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: AppColors.mainBGColor, width: 2),
+                          ),
+                          padding: const EdgeInsets.all(2),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.transparent,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "English",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: AppColors.mainBGColor,
+                              width: 2,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(1),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.transparent,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

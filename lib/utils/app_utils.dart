@@ -14,7 +14,7 @@ class AppUtils {
   static MaskTextInputFormatter textMaskFormatter = MaskTextInputFormatter();
 
   static MaskTextInputFormatter dateMaskFormatter = MaskTextInputFormatter(
-    mask: '##/##/####',
+    mask: '##.##.####',
     filter: {"#": RegExp(r'[0-9]')},
   );
 

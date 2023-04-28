@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kid_trip/constants/navigator.dart';
-import 'package:kid_trip/ui/roles/parent/parent_navigation/parent_navigation.dart';
+import 'package:kid_trip/ui/roles/child/child_navigation.dart';
+import 'package:kid_trip/ui/roles/driver/driver_navigation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
-import '../../domain/controllers/login_controller.dart';
+import '../../domain/data/end_points.dart';
+import '../../domain/get_it_sl.dart';
 import '../../generated/l10n.dart';
-import '../roles/driver/driver_navigation/driver_navigation.dart';
-import 'components/login_with.dart';
+import '../roles/parent/first_visit_fill/first_fill_profile.dart';
+import '../widgets/snack_bars/app_snack_bar_widget.dart';
 import 'components/text_buttons.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -25,8 +28,44 @@ class _LoginScreenState extends State<LoginScreen> {
   Color buttonTextColor = Colors.white54;
   bool passwordVisibility = true;
 
-  LoginController loginController = Get.put(LoginController());
   var isLogin = false.obs;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  AppData api = sl<AppData>();
+  signIn() async {
+    print('hhhe');
+    Map<String, dynamic> data = {
+      "username": emailController.text,
+      "password": passwordController.text,
+    };
+    print(data);
+    var result = await api.postRequest(
+      data: data,
+      context: context,
+      path: AppData.signIn,
+    );
+    print(result);
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if (result != null) {
+      prefs.setString('token', result['token']);
+      if(result['role'] == 'PARENT') {
+        AppNavigator.pushAndRemove(context: context, page: const FirstFillProfile());
+      } else if(result['role'] == 'CHILD') {
+        AppNavigator.pushAndRemove(context: context, page: const ChildNavigation());
+      } else if(result['role'] == 'DRIVER') {
+        AppNavigator.pushAndRemove(context: context, page: const DriverNavigation());
+      }
+      AppSnackBarWidget(
+        description: 'Вход успешно выполнен!',
+        onPressed: () {},
+        color: AppColors.primaryGreen,
+      ).show(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 }
                 return null;
               },
-              controller: loginController.emailController,
+              controller: emailController,
               style: const TextStyle(color: AppColors.whiteTextColor),
               decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -59,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  hintText: "E-mail",
+                  hintText: "Email",
                   hintStyle: const TextStyle(
                     color: Colors.white54,
                   ),
@@ -75,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 10,
             ),
             TextFormField(
-              controller: loginController.passwordController,
+              controller: passwordController,
               obscureText: passwordVisibility,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -122,8 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   backgroundColor: buttonColor, // foreground
                 ),
                 onPressed: () {
-                  AppNavigator.push(context: context, page: const DriverNavigation());
-                   // loginController.loginWithEmail();
+                  signIn();
                 },
                 child: Text(S.of(context).signIn),
               ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kid_trip/ui/registration_screen/components/input_methods.dart';
 import 'package:kid_trip/ui/registration_screen/roles/steps/car_data.dart';
 import 'package:kid_trip/ui/registration_screen/roles/steps/doc_photo.dart';
 import 'package:kid_trip/ui/registration_screen/roles/steps/last_steps.dart';
@@ -9,7 +7,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
-import '../../../domain/controllers/registration_controller.dart';
+import '../../../constants/navigator.dart';
+import '../../login_screen/login_screen.dart';
 import '../../widgets/alert_dialog/success_alert_dialog.dart';
 import '../components/submit_button.dart';
 
@@ -24,9 +23,9 @@ class _RegistrationDriverState extends State<RegistrationDriver> {
   bool passwordVisibility = true;
   int page = 0;
   final PageController _pageController = PageController(initialPage: 0);
-
-  RegistrationController registrationController =
-      Get.put(RegistrationController());
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,24 +79,15 @@ class _RegistrationDriverState extends State<RegistrationDriver> {
                             height: 20,
                           ),
                           index == 0
-                              ? MainData(
-                                  nameController:
-                                      registrationController.nameController)
+                              ? MainData(nameController: nameController)
                               : index == 1
-                                  ? CarData(
-                                      nameController:
-                                          registrationController.nameController)
+                                  ? CarData(nameController: nameController)
                                   : index == 2
-                                      ? DocPhoto(
-                                          nameController: registrationController
-                                              .nameController)
+                                      ? DocPhoto(nameController: nameController)
                                       : LastStep(
-                                          emailController:
-                                              registrationController
-                                                  .emailController,
+                                          emailController: emailController,
                                           passwordController:
-                                              registrationController
-                                                  .passwordController,
+                                              passwordController,
                                           passwordVisibility:
                                               passwordVisibility,
                                           iconPressed: () {
@@ -122,12 +112,21 @@ class _RegistrationDriverState extends State<RegistrationDriver> {
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
                   );
-                  if(_pageController.page == 3.0){
-                    successAlertDialog(context: context, title: 'Вы успешно зарегистрировались. Ваш аккаут готов к использованию!', buttonText: 'Войти');
+                  if (_pageController.page == 3.0) {
+                    successAlertDialog(
+                      context: context,
+                      title:
+                          'Вы успешно зарегистрировались. Ваш аккаут готов к использованию!',
+                      buttonText: 'Войти',
+                      onPressed: () {
+                        AppNavigator.push(
+                            context: context, page: const LoginScreen());
+                      },
+                    );
                   }
                   // registrationController.registerWithEmail();
                 },
-                title: 'Далее' ,
+                title: 'Далее',
               ),
             ),
             const SizedBox(

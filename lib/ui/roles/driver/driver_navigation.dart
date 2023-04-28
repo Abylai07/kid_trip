@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:kid_trip/ui/roles/child/map_screen/child_map.dart';
-import 'package:kid_trip/ui/roles/child/profile_screen/profile_child.dart';
-import 'package:kid_trip/ui/roles/child/schedule_screen/schedule_child.dart';
+import 'package:kid_trip/ui/roles/driver/map_screen/driver_map.dart';
+import 'package:kid_trip/ui/roles/driver/profile_screen/profile_driver.dart';
+import 'package:kid_trip/ui/roles/driver/schedule_screen/schedule_driver.dart';
 
-import '../../../../constants/app_colors.dart';
-import '../../parent/home_screen/home_screen.dart';
-import '../../parent/parent_map/parent_map.dart';
+import '../../../constants/app_colors.dart';
 
 
-class ChildNavigation extends StatefulWidget {
-  const ChildNavigation({super.key});
+class DriverNavigation extends StatefulWidget {
+  const DriverNavigation({super.key});
 
   @override
-  State<ChildNavigation> createState() => _ChildNavigationState();
+  State<DriverNavigation> createState() => _DriverNavigationState();
 }
 
-class _ChildNavigationState extends State<ChildNavigation> {
-  int _selectedPage = 0;
+class _DriverNavigationState extends State<DriverNavigation> {
+  int _selectedPage = 1;
 
   void onSelectPage(int index) {
     setState(() {
@@ -27,9 +25,9 @@ class _ChildNavigationState extends State<ChildNavigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const ScheduleChild(),
-    const ChildMap(),
-    const ProfileChild(),
+    const ScheduleDriver(),
+    const DriverMap(),
+    const ProfileDriver(),
   ];
 
   @override
@@ -64,18 +62,18 @@ class _ChildNavigationState extends State<ChildNavigation> {
                 color: Colors.black87,
                 tabs: const [
                   GButton(
-                    icon: Icons.calendar_month,
-                    text: 'Schedule',
-                  ),
+                  icon: Icons.calendar_month,
+                  text: 'Schedule',
+                ),
                   GButton(
                     icon: Icons.map,
                     text: 'Map',
                   ),
+
                   GButton(
                     icon: Icons.person_rounded,
                     text: 'Profile',
                   ),
-
                 ],
                 selectedIndex: _selectedPage,
                 onTabChange: onSelectPage,

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:kid_trip/ui/roles/child/map_screen/child_map.dart';
+import 'package:kid_trip/ui/roles/child/profile_screen/profile_child.dart';
+import 'package:kid_trip/ui/roles/child/schedule_screen/schedule_child.dart';
 
-import '../../../../constants/app_colors.dart';
-import '../home_screen/home_screen.dart';
-import '../parent_map/parent_map.dart';
-import '../profile_screen/profile_screen.dart';
-import '../trips_screen/trips_screen.dart';
+import '../../../constants/app_colors.dart';
+import '../parent/home_screen/home_screen.dart';
+import '../parent/parent_map/parent_map.dart';
 
 
-class ParentNavigation extends StatefulWidget {
-  const ParentNavigation({super.key});
+class ChildNavigation extends StatefulWidget {
+  const ChildNavigation({super.key});
 
   @override
-  State<ParentNavigation> createState() => _ParentNavigationState();
+  State<ChildNavigation> createState() => _ChildNavigationState();
 }
 
-class _ParentNavigationState extends State<ParentNavigation> {
+class _ChildNavigationState extends State<ChildNavigation> {
   int _selectedPage = 0;
 
   void onSelectPage(int index) {
@@ -26,10 +27,9 @@ class _ParentNavigationState extends State<ParentNavigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
-    const ParentMap(),
-    const TripsScreen(),
-    const ProfileScreen(),
+    const ScheduleChild(),
+    const ChildMap(),
+    const ProfileChild(),
   ];
 
   @override
@@ -39,7 +39,6 @@ class _ParentNavigationState extends State<ParentNavigation> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedPage),
       ),
-
       bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -65,16 +64,12 @@ class _ParentNavigationState extends State<ParentNavigation> {
                 color: Colors.black87,
                 tabs: const [
                   GButton(
-                    icon: Icons.home_filled,
-                    text: 'Home',
+                    icon: Icons.calendar_month,
+                    text: 'Schedule',
                   ),
                   GButton(
                     icon: Icons.map,
                     text: 'Map',
-                  ),
-                  GButton(
-                    icon: Icons.drive_eta,
-                    text: 'Trips',
                   ),
                   GButton(
                     icon: Icons.person_rounded,

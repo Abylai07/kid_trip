@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:kid_trip/ui/roles/driver/map_screen/driver_map.dart';
-import 'package:kid_trip/ui/roles/driver/profile_screen/profile_driver.dart';
-import 'package:kid_trip/ui/roles/driver/schedule_screen/schedule_driver.dart';
+import 'package:kid_trip/ui/roles/parent/trips_screen/map/select_location.dart';
+import 'package:kid_trip/ui/roles/parent/trips_screen/one_time_trip.dart';
 
-import '../../../../constants/app_colors.dart';
+import '../../../constants/app_colors.dart';
+import 'home_screen/home_screen.dart';
+import 'parent_map/parent_map.dart';
+import 'profile_screen/profile_screen.dart';
 
 
-class DriverNavigation extends StatefulWidget {
-  const DriverNavigation({super.key});
+class ParentNavigation extends StatefulWidget {
+  const ParentNavigation({super.key});
 
   @override
-  State<DriverNavigation> createState() => _DriverNavigationState();
+  State<ParentNavigation> createState() => _ParentNavigationState();
 }
 
-class _DriverNavigationState extends State<DriverNavigation> {
-  int _selectedPage = 1;
+class _ParentNavigationState extends State<ParentNavigation> {
+  int _selectedPage = 0;
 
   void onSelectPage(int index) {
     setState(() {
@@ -25,9 +27,10 @@ class _DriverNavigationState extends State<DriverNavigation> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const ScheduleDriver(),
-    const DriverMap(),
-    const ProfileDriver(),
+    const HomeScreen(),
+    const ParentMap(),
+    const SelectLocation(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -62,18 +65,22 @@ class _DriverNavigationState extends State<DriverNavigation> {
                 color: Colors.black87,
                 tabs: const [
                   GButton(
-                  icon: Icons.calendar_month,
-                  text: 'Schedule',
-                ),
-                  GButton(
-                    icon: Icons.map,
-                    text: 'Map',
+                    icon: Icons.home_filled,
+                    text: 'Главный',
                   ),
-
+                  GButton(
+                    icon: Icons.place,
+                    text: 'Отслеживать',
+                  ),
+                  GButton(
+                    icon: Icons.drive_eta,
+                    text: 'Однаразовая поездка',
+                  ),
                   GButton(
                     icon: Icons.person_rounded,
-                    text: 'Profile',
+                    text: 'Профиль',
                   ),
+
                 ],
                 selectedIndex: _selectedPage,
                 onTabChange: onSelectPage,

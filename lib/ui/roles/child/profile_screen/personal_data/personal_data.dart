@@ -153,7 +153,7 @@ class _PersonalDataView extends State<PersonalDataView> {
                 AppTextField(
                   controller: nameController,
                   icon: AppAssets.svg.redact,
-                  hintText: 'Aigul',
+                  hintText: 'Рахман',
                   enabled: true,
                   number: false,
                   inputFormatter: [AppUtils.textMaskFormatter],
@@ -161,7 +161,7 @@ class _PersonalDataView extends State<PersonalDataView> {
                 AppTextField(
                   controller: emailController,
                   icon: AppAssets.svg.redact,
-                  hintText: 'aigul@gmail.com',
+                  hintText: 'rakhman@gmail.com',
                   enabled: false,
                   number: false,
                   inputFormatter: [AppUtils.textMaskFormatter],
@@ -172,7 +172,7 @@ class _PersonalDataView extends State<PersonalDataView> {
                   hintText: '+7714424343',
                   enabled: true,
                   number: true,
-                  inputFormatter: [AppUtils.phoneMaskFormatter],
+                  inputFormatter: [AppUtils.textMaskFormatter],
                 ),
               ],
             )

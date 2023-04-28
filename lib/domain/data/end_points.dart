@@ -14,43 +14,12 @@ class AppData {
   //URLS
 
   //ACCOUNT
-  static const String sign_up = "accounts/";
-  static const String sign_in = "accounts/login/";
+  static const String signUp = "auth/public/signup";
+  static const String signIn = "auth/public/login";
   static const String me = "/accounts/me/";
   static const String forgot_password = "accounts/forgot_password/";
   static const String set_password = "/accounts/set_password/";
   static const String verify_by_code = "/accounts/verify_by_code/";
-
-  //PRODUCTS
-  static const String products = "products/";
-
-  //MODULES
-  static const String allModules = "modules/";
-  static const String modules = "get_modules/";
-
-  //COURSES
-  static const String all_courses = "courses/";
-  static const String courses = "get_courses/";
-
-  //LESSONS
-  static const String lessons = "lessons/";
-  static const String get_lessons = "get_lessons/";
-  static const String get_videos = "get_videos/";
-
-  // FEEDBACK
-  static const String feedbacks = "feedbacks/";
-
-  // QUESTIONNAIRES
-  static const String questionnaires = "questionnaires/";
-  static const String get_questionnaires = "get_questionnaires/";
-  static const String questionnaires_results = "questionnaires_results/";
-  static const String set_results = "set_results/";
-
-  //SALES
-  static const String basket = "basket/create_purchase/";
-  static const String sales = "sales/";
-  static const String get_purchase_history = "get_purchase_history/";
-
   ///METHODS
 
   Future<dynamic> postRequest({

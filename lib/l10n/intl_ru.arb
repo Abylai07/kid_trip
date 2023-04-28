@@ -1,7 +1,7 @@
 {
   "kidTrip" : "KidTrip",
   "error" : "Ошибка",
-  "selectLanguage" : "Выбирайте язык",
+  "selectLanguage" : "Выберите язык",
   "start" : "Начать",
   "howManyChildren" : "Сколько детей?",
   "togetherMinibus" : "Вместе другими детьми(микроавтобус)",
@@ -14,7 +14,7 @@
   "description" : "Описание",
   "price" : "Цена",
   "select" : "Выбирайте",
-  "welcome" : "Добро пожаловать в KidTrip",
+  "welcome" : "Добро пожаловать",
   "login" : "Авторизуйтесь",
   "register" : "Регистрируйтесь",
   "signIn" : "Войти",
